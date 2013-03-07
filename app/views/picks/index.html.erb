@@ -1,0 +1,33 @@
+<h1>Listing picks</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Away picked</th>
+    <th>Home picked</th>
+    <th>Game</th>
+    <th>Game teams</th>
+    <th>Line</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @picks.each do |pick| %>
+  <tr>
+    <td><%= pick.user_id %></td>
+    <td><%= pick.away_picked %></td>
+    <td><%= pick.home_picked %></td>
+    <td><%= pick.game_id %></td>
+    <td><%= pick.game_teams %></td>
+    <td><%= pick.line %></td>
+    <td><%= link_to 'Show', pick %></td>
+    <td><%= link_to 'Edit', edit_pick_path(pick) %></td>
+    <td><%= link_to 'Destroy', pick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pick', new_pick_path %>

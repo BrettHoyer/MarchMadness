@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  away_picked: false
+  home_picked: false
+  game_id: 1
+  game_teams: MyString
+  line: MyString
+
+two:
+  user_id: 1
+  away_picked: false
+  home_picked: false
+  game_id: 1
+  game_teams: MyString
+  line: MyString

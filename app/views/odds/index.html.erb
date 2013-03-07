@@ -1,0 +1,50 @@
+<% @all_games_info.each do |bet_all| %>
+	<% @game_teams = bet_all["game_teams"] %>
+	<% @away_line = bet_all["away_line"] %>
+	<% @home_line = bet_all["home_line"] %>
+	<% @game_time = bet_all["game_time"] %>
+	<% @game_id = bet_all["game_id"] %>
+
+		<h3><%= @game_teams %></h3>
+
+		<%= form_for(@pick) do |f| %>
+		  <% if @pick.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@pick.errors.count, "error") %> prohibited this pick from being saved:</h2>
+
+		      <ul>
+		      <% @pick.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+		  <div class="field">
+		    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :home_or_away, "Away #{@away_line}" %>
+		    <%= f.radio_button :home_or_away, "Away"%>
+		    <%= f.label :home_or_away, "Home #{@home_line}" %>
+		    <%= f.radio_button :home_or_away, "Home"%><br />
+		  </div>
+		  <div class="field">
+		    <%= f.hidden_field :game_id, :value => @game_id %>
+		  </div>
+		  <div class="field">
+		    <%= f.hidden_field :game_teams, :value => @game_teams %>
+		  </div>
+		  <div class="field">
+		    <%= f.hidden_field :line, :value => @home_line %>
+		  </div>
+		  <div class="actions">
+		    <%= f.submit %>
+		  </div>
+		<% end %>
+
+
+<% end %>
+
+
+

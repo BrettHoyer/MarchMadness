@@ -2,16 +2,16 @@
 
 one:
   user_id: 1
-  away_picked: false
-  home_picked: false
-  game_id: 1
+  game_id: MyString
   game_teams: MyString
   line: MyString
+  home_or_away: MyString
+  win_or_lose: false
 
 two:
   user_id: 1
-  away_picked: false
-  home_picked: false
-  game_id: 1
+  game_id: MyString
   game_teams: MyString
   line: MyString
+  home_or_away: MyString
+  win_or_lose: false

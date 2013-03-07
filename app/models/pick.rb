@@ -1,5 +1,3 @@
 class Pick < ActiveRecord::Base
-  attr_accessible :home_or_away, :game_id, :game_teams, :line, :user_id
-
-  validates_presence_of :home_or_away
+  attr_accessible :game_id, :game_teams, :home_or_away, :line, :user_id, :win_or_lose
 end

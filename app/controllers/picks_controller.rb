@@ -44,6 +44,7 @@ class PicksController < ApplicationController
 
     respond_to do |format|
       if @pick.save
+        format.js{ render 'create' }
         format.html { redirect_to odds_url, notice: 'Pick was successfully created.' }
         format.json { render json: @pick, status: :created, location: @pick }
       else

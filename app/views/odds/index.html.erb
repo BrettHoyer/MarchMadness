@@ -4,14 +4,14 @@
 	<% @home_line = bet_all["home_line"] %>
 	<% @game_time = bet_all["game_time"] %>
 	<% @game_id = bet_all["game_id"] %>
-
+	<% if @picks.where(:game_id => @game_id).empty? %>
 	<div id="game_<%= @game_id %>" class="individual-game">
 		<h3><%= @game_teams %></h3>
 			<%= @game_time %>
 		<% if @home_line == nil %>
 			<div class="no-line"><%= "Sorry, line isn't out yet" %></div>
 		<% else %>
-			<%= form_for(@pick) do |f| %>
+			<%= form_for @pick, :remote => true do |f| %>
 			  <% if @pick.errors.any? %>
 			    <div id="error_explanation">
 			      <h2><%= pluralize(@pick.errors.count, "error") %> prohibited this pick from being saved:</h2>
@@ -48,6 +48,9 @@
 			<% end %>
 		<% end %>
 	</div>
+	<% else %>
+	<%= "Sorry, selection already made for the #{@game_teams} game." %>
+	<% end %>
 <% end %>
 
 

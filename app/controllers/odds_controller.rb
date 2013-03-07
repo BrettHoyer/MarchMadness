@@ -4,6 +4,7 @@ class OddsController < ApplicationController
 
 	def index
 		@pick=Pick.new
+		@picks=Pick.where(:user_id => session[:user_id])
 
 		key="97429b5a-2486-e211-b97f-003048dd52d5"
 

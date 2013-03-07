@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307004747) do
+ActiveRecord::Schema.define(:version => 20130307214234) do
 
   create_table "picks", :force => true do |t|
     t.integer  "user_id"
@@ -21,14 +21,16 @@ ActiveRecord::Schema.define(:version => 20130307004747) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "home_or_away"
+    t.integer  "wager_amount"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "password_digest"
+    t.integer  "account_balance", :default => 1000
   end
 
 end

@@ -9,7 +9,7 @@
 		<h3><%= @game_teams %></h3>
 			<%= @game_time %>
 		<% if @home_line == nil %>
-			<div class="no-line"><%= "Sorry, line isn't out yet" %></div>
+			<div class="no-line"><%= "Sorry, line currently unavailable" %></div>
 		<% else %>
 			<%= form_for @pick, :remote => true do |f| %>
 			  <% if @pick.errors.any? %>
@@ -37,6 +37,10 @@
 			    <%= f.hidden_field :game_id, :value => @game_id %>
 			  </div>
 			  <div class="field">
+			  	<%= f.label :wager_amount, "Wager Amount" %>
+			  	<%= f.number_field :wager_amount  %>
+			  </div>
+			  <div class="field">
 			    <%= f.hidden_field :game_teams, :value => @game_teams %>
 			  </div>
 			  <div class="field">
@@ -49,7 +53,7 @@
 		<% end %>
 	</div>
 	<% else %>
-	<%= "Sorry, selection already made for the #{@game_teams} game." %>
+	<center><%= "Selection already made for the #{@game_teams} game." %></center>
 	<% end %>
 <% end %>
 

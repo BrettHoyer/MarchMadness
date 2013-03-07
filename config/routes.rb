@@ -2,6 +2,8 @@ Mm::Application.routes.draw do
 
   resources :picks
 
+  root :to => 'odds#index'
+
   get "sessions/new" 
 
   post "sessions/create"

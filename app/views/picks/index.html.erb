@@ -16,8 +16,7 @@
 <% @picks.each do |pick| %>
   <tr>
     <td><%= pick.user_id %></td>
-    <td><%= pick.away_picked %></td>
-    <td><%= pick.home_picked %></td>
+    <td><%= pick.home_or_away %></td>
     <td><%= pick.game_id %></td>
     <td><%= pick.game_teams %></td>
     <td><%= pick.line %></td>

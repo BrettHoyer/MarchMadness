@@ -7,7 +7,7 @@ class OddsController < ApplicationController
 
 		key="97429b5a-2486-e211-b97f-003048dd52d5"
 
-		odds="http://xmlfeed.intertops.com/xmloddsfeed/v2/xml/?apikey=#{key}&delta=500&sportId=5&catId=1068"
+		odds="http://xmlfeed.intertops.com/xmloddsfeed/v2/xml/?apikey=#{key}&delta=1000&sportId=5&catId=1068"
 
 		odds_xml = open(URI.parse(odds))
 

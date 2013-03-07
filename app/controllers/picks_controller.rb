@@ -2,7 +2,7 @@ class PicksController < ApplicationController
   # GET /picks
   # GET /picks.json
   def index
-    @picks = Pick.all
+    @picks = Pick.where(:user_id => session[:user_id])
 
     respond_to do |format|
       format.html # index.html.erb

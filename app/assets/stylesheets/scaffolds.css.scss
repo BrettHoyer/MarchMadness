@@ -67,3 +67,33 @@ div {
     list-style: square;
   }
 }
+
+.no-line{
+  border: 1px dotted red;
+  display: inline;
+  background: rgba(0,255,255, .2)
+
+}
+
+.individual-game{
+  background: -webkit-linear-gradient(rgba(240, 156, 156, 1), rgba(206, 136, 136, 1));
+  text-align: center;
+  width: 850px;
+  padding: 20px;
+  margin: 20px auto;
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,.6);
+  border-radius: 6px;
+
+}
+
+form{
+  display: inline;
+}
+
+.pickbutton{
+  background:rgb(39, 163, 216);
+  color:white;
+  padding: 2px; 
+  border: 1px solid white;
+
+}

@@ -1,6 +1,7 @@
 class PicksController < ApplicationController
   # GET /picks
   # GET /picks.json
+
   def index
     @picks = Pick.where(:user_id => session[:user_id])
 
@@ -41,10 +42,10 @@ class PicksController < ApplicationController
   # POST /picks.json
   def create
     @pick = Pick.new(params[:pick])
-
     respond_to do |format|
       if @pick.save
-        format.js{ render 'create' }
+         @user = User.find_by_id(session[:user_id])
+        format.js{ render 'create', :user => @user }
         format.html { redirect_to odds_url, notice: 'Pick was successfully created.' }
         format.json { render json: @pick, status: :created, location: @pick }
       else

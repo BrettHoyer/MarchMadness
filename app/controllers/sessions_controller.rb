@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_login, :only => [:new, :create]
+
   def new
+    if session[:user_id] != nil
+      redirect_to odds_url
+    end
   end
 
   def create

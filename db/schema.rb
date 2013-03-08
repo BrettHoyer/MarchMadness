@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307233818) do
+ActiveRecord::Schema.define(:version => 20130307234851) do
 
   create_table "picks", :force => true do |t|
     t.integer  "user_id"
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20130307233818) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "account_balance"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "account_balance", :default => 1000
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
 end

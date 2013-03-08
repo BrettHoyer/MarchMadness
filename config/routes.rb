@@ -2,9 +2,9 @@ Mm::Application.routes.draw do
 
   resources :picks
 
-  root :to => 'odds#index'
+  root :to => 'sessions#new'
 
-  get "sessions/new" 
+  get "sessions/new", :as => 'sessions_new' 
 
   post "sessions/create"
 

@@ -1,7 +1,7 @@
 <h1 id="balance">Account Balance: <%= @user.account_balance %></h1>
 
 <div id="game_2555" class="individual-game">
-		<h3>Pennsbury vs. Neshaminy</h3>
+		<h3>Pennsbury v Neshaminy</h3>
 			<h4> 10:00pm</h4>
 
 			<%= form_for @pick, :remote => true do |f| %>
@@ -29,12 +29,15 @@
 			  <div class="field">
 			    <%= f.hidden_field :game_id, :value => "2555" %>
 			  </div>
+			   <div class="field">
+			    <%= f.hidden_field :game_time, :value => "2013-03-10T03:30" %>
+			  </div>
 			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
 			  	<%= f.number_field :wager_amount, :max => @user.account_balance/2%>
 			  </div>
 			  <div class="field">
-			    <%= f.hidden_field :game_teams, :value => "Pennsbury vs. Neshaminy" %>
+			    <%= f.hidden_field :game_teams, :value => "Pennsbury v Neshaminy" %>
 			  </div>
 			  <div class="field">
 			    <%= f.hidden_field :line, :value => 5 %>
@@ -46,7 +49,7 @@
 	</div>
 
 	<div id="game_2444" class="individual-game">
-		<h3>CRN vs. CRS</h3>
+		<h3>CRN v CRS</h3>
 			<h4> 10:00pm</h4>
 
 			<%= form_for @pick, :remote => true do |f| %>
@@ -75,11 +78,14 @@
 			    <%= f.hidden_field :game_id, :value => "2444" %>
 			  </div>
 			  <div class="field">
+			    <%= f.hidden_field :game_time, :value => "2013-03-10T03:30" %>
+			  </div>
+			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
 			  	<%= f.number_field :wager_amount, :max => @user.account_balance/2%>
 			  </div>
 			  <div class="field">
-			    <%= f.hidden_field :game_teams, :value => "CRN vs. CRS" %>
+			    <%= f.hidden_field :game_teams, :value => "CRN v CRS" %>
 			  </div>
 			  <div class="field">
 			    <%= f.hidden_field :line, :value => 5 %>
@@ -91,7 +97,7 @@
 	</div>
 
 	<div id="game_2333" class="individual-game">
-		<h3>Abington vs. Souderton</h3>
+		<h3>Abington v Souderton</h3>
 			<h4> 10:00pm</h4>
 
 			<%= form_for @pick, :remote => true do |f| %>
@@ -120,11 +126,14 @@
 			    <%= f.hidden_field :game_id, :value => "2333" %>
 			  </div>
 			  <div class="field">
+			    <%= f.hidden_field :game_time, :value => "2013-03-10T03:30" %>
+			  </div>
+			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
 			  	<%= f.number_field :wager_amount, :max => @user.account_balance/2 %>
 			  </div>
 			  <div class="field">
-			    <%= f.hidden_field :game_teams, :value => "Abington vs. Souderton" %>
+			    <%= f.hidden_field :game_teams, :value => "Abington v Souderton" %>
 			  </div>
 			  <div class="field">
 			    <%= f.hidden_field :line, :value => 5 %>
@@ -134,7 +143,6 @@
 			  </div>
 			<% end %>
 	</div>
-
 
 
 
@@ -183,8 +191,11 @@
 			    <%= f.hidden_field :game_id, :value => @game_id %>
 			  </div>
 			  <div class="field">
+			    <%= f.hidden_field :game_time, :value => @game_time %>
+			  </div>
+			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
-			  	<%= f.number_field :wager_amount, :max => @user.account_balance/2%>
+			  	<%= f.number_field :wager_amount, :max => @user.account_balance/2 %>
 			  </div>
 			  <div class="field">
 			    <%= f.hidden_field :game_teams, :value => @game_teams %>
@@ -202,10 +213,10 @@
 	<center><%= "Selection already made for the #{@game_teams} game." %></center>
 	<% end %>
 <% end %>
+
+
 <% 
 =end
 %>
-
-
 
 

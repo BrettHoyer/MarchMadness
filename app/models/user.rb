@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = user.email.downcase }
 
   has_many :picks
-  
+
   has_secure_password
+
+  
+  
 end

@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
   	if @user && @user.authenticate(params[:password])
   		session[:user_id] = @user.id
   		redirect_to odds_url
+      else
+      redirect_to sessions_new_url
   	end
   end
 

@@ -1,3 +1,3 @@
 $("#game_<%= @pick.game_id %>").fadeOut(1000);
-$("#balance").html("<h1>Account Balance: <%= @user.account_balance %></h1>");
-
+$("#balance").html("<h5>Account Balance: <%= @user.account_balance %></h5>");
+$('form').children('div').children('input#pick_wager_amount').attr('max', <%= @user.account_balance/2 %>);

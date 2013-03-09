@@ -16,6 +16,11 @@
     <%= f.number_field :user_id %>
   </div>
   <div class="field">
+    <%= f.label :win_or_lose %><br />
+    <%= f.check_box :win_or_lose %>
+  </div>
+
+  <div class="field">
     <%= f.label :home_or_away, "Home" %>
     <%= f.radio_button :home_or_away, "Home"%><br />
     <%= f.label :home_or_away, "Away" %>

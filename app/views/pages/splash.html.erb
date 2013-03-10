@@ -1,16 +1,27 @@
 <div class='container-splash'>
-	<h1 id='splash-first' class='splash-text'>I Know Why You're Here...</h1>
+	<!-- <h1 id='splash-first' class='splash-text'>I Know Why You're Here...</h1>
 	<h1 id='splash-second' class='splash-text'>It's That Time Of Year Again...</h1>
 	<h1 id='splash-third' class='splash-text'>Eyes Glued To ESPN2...</h1>
 	<h1 id='splash-fourth' class='splash-text'>Because The Ladies Are Back...</h1>
 	<img src="/assets/brittney_griner.png", id='splash-fifth', class='splash-photo-portrait' />
-	<h1 id='splash-sixth' class='splash-text'>And Betting Fever Is Upon Us...</h1>
+	<h1 id='splash-sixth' class='splash-text'>And Betting Fever Is Upon Us...</h1> -->
+
+	<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		<div class="flipper">
+			<div class="front">
+				<center><p></p><center>
+			</div>
+			<div class="back">
+				<h3><center><%= link_to "Sign Up Now To Start Winning Moolah!" %></center></h3>
+			</div>
+		</div>
+	</div>
 
 
 </div>
 
 
-
+<!-- 
 <script>
 	$(document).ready(function(){
 		$('h1').hide();
@@ -24,13 +35,11 @@
 		$('#splash-fourth').delay(10000).fadeIn(1000);
 		$('#splash-fourth').delay(1000).fadeOut(1000);
 		$('#splash-fifth').delay(13000).fadeIn(1000);
-		// $('#splash-fifth').delay(3000).fadeOut(3000);
+		$('#splash-fifth').delay(3000).fadeOut(3000);
 		$('#splash-sixth').delay(19000).fadeIn(1000)
-		$('#splash-sixth').delay(1000).fadeOut(3000)
-
-
+		$('#splash-sixth').delay(1000).fadeOut(3000) 
 	});
 </script>
 
-
+ -->
 

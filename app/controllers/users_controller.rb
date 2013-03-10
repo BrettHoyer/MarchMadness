@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+   before_filter :require_admin, :only => [:index]
    skip_before_filter :require_login, :only => [:new, :create]
   
   def index

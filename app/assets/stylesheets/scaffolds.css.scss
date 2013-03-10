@@ -6,7 +6,6 @@ body {
   margin: 0;
   padding: 0;
   background: url('bg.png') repeat repeat;
-  cursor:url('kane_idiot.png'), -moz-zoom-in;
 }
 
 
@@ -223,6 +222,56 @@ li:last-child {
   position: relative;
   display: block;
   
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000;
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+  }
+
+.flip-container, .front, .back {
+  position: absolute;
+  left: 500px;
+  top: 150px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+
+}
+
+/* flip speed goes here */
+.flipper {
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  -webkit-backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  background: url('kane_idiot.png');
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+  line-height: 300px;
+  background: orange;
+  vertical-align: middle;
+  -webkit-transform: rotateY(180deg);
 }
 
 

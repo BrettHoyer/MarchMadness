@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :picks, :order => 'created_at desc'
 
+  validates_uniqueness_of :email, :name
+  
   has_secure_password
 
   def total_account_value

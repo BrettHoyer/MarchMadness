@@ -1,0 +1,22 @@
+<div class='container-leaderboard'>
+	<table class="leaderboard-table">
+		<tr>
+			<th>Name</th>
+			<th>Total</th>
+			<th>Account Balance</th>
+			<th>Pending Amount</th>
+		</tr>
+		<tr>
+			<% @users.each do |user| %>
+			<td><%= user.name %></td>
+			<td><%= user.total_account_value %></td>
+			<td><%= user.account_balance %></td>
+			<td><%= user.total_pending_value %></td>
+		</tr> 
+		<% end %>
+		
+	</table>
+
+
+
+</div>

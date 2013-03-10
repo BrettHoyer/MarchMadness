@@ -1,6 +1,8 @@
 class Pick < ActiveRecord::Base
   attr_accessible :game_id, :game_time, :game_teams, :home_or_away, :line, :user_id, :win_or_lose, :wager_amount
 
+  validates_presence_of :game_id, :line, :wager_amount, :user_id, :game_teams, :home_or_away
+
    belongs_to :user
 
    after_save :reduce_user_account_balance

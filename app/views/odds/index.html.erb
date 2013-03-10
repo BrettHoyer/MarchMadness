@@ -1,5 +1,7 @@
 <h1 id="balance">Account Balance: <%= @user.account_balance %></h1>
-
+<% 
+=begin
+%>
 <div id="game_2555" class="individual-game">
 		<h3>Pennsbury v Neshaminy</h3>
 			<h4> 10:00pm</h4>
@@ -144,11 +146,11 @@
 			<% end %>
 	</div>
 
-
-
 <% 
-=begin
+=end
 %>
+
+
 
 <% @all_games_info.each do |bet_all| %>
 	<% @game_teams = bet_all["game_teams"] %>
@@ -195,7 +197,7 @@
 			  </div>
 			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
-			  	<%= f.number_field :wager_amount, :max => @user.account_balance/2 %>
+			  	<%= f.number_field :wager_amount, :min => 1, :max => @user.account_balance/2, :width => 100 %>
 			  </div>
 			  <div class="field">
 			    <%= f.hidden_field :game_teams, :value => @game_teams %>
@@ -215,8 +217,6 @@
 <% end %>
 
 
-<% 
-=end
-%>
+
 
 

@@ -1,8 +1,10 @@
 Mm::Application.routes.draw do
 
-  resources :picks
+  get "leaderboard/index"
 
-  root :to => 'sessions#new'
+  root :to=> "pages#splash"
+
+  get "pages/splash"
 
   get "sessions/new", :as => 'sessions_new' 
 
@@ -11,6 +13,10 @@ Mm::Application.routes.draw do
   get "sessions/destroy"
 
   resources :users
+
+   resources :picks
+
+  get '/leaderboard' => 'leaderboard#index', :as => 'leaderboard'
 
   get '/main' => 'odds#index', :as => 'odds'
   # The priority is based upon order of creation:

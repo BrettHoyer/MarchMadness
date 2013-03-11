@@ -14,8 +14,7 @@ class Odd < ActiveRecord::Base
 
 		config = XmlSimple.xml_in(odds_xml, { 'KeyAttr' => 'name' })
 
-		all_games_info=Array.new
-
+		 Odd.destroy_all
 		 config['data'][0]['s'][0]['cat'][0]['m'].each do |game|
 		 	@odd=Odd.new
 		 	@odd.game_time = game["dt"]

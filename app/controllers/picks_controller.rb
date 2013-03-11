@@ -1,10 +1,14 @@
 class PicksController < ApplicationController
   # GET /picks
   # GET /picks.json
+  before_filter :require_admin, :only => [:edit]
 
   def index
-    @picks = Pick.where(:user_id => session[:user_id])
-
+    if User.where(:id=>session[:user_id])
+      @picks=Pick.all
+    else
+      @picks = Pick.where(:user_id => session[:user_id])
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @picks }

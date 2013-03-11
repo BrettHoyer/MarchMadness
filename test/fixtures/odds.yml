@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  game_id: MyString
+  game_time,: MyString
+  game_teams,: MyString
+  home_line,: MyString
+  away_line: MyString
+
+two:
+  game_id: MyString
+  game_time,: MyString
+  game_teams,: MyString
+  home_line,: MyString
+  away_line: MyString

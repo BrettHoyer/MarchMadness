@@ -152,12 +152,12 @@
 
 
 
-<% @all_games_info.each do |bet_all| %>
-	<% @game_teams = bet_all["game_teams"] %>
-	<% @away_line = bet_all["away_line"] %>
-	<% @home_line = bet_all["home_line"] %>
-	<% @game_time = bet_all["game_time"] %>
-	<% @game_id = bet_all["game_id"] %>
+<% @odds.each do |odd| %>
+	<% @game_teams = odd.game_teams %>
+	<% @away_line = odd.away_line %>
+	<% @home_line = odd.home_line %>
+	<% @game_time = odd.game_time %>
+	<% @game_id = odd.game_id %>
 
 
 	<% if @picks.where(:game_id => @game_id).empty? %>

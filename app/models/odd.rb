@@ -2,7 +2,7 @@ class Odd < ActiveRecord::Base
   attr_accessible :away_line, :game_id, :game_teams, :game_time, :home_line, :game_date
 	
 	require 'open-uri'
-	require 'xmlsimple'
+	require 'nokogiri'
 
 	def self.update_odds
 

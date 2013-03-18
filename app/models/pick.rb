@@ -1,6 +1,6 @@
 class Pick < ActiveRecord::Base
 require 'open-uri'
-require 'Nokogiri'
+require 'nokogiri'
   attr_accessible :game_id, :game_time, :game_teams, :home_or_away, :line, :user_id, :win_or_lose, :wager_amount, :away_id, :home_id
 
   validates_presence_of :line, :wager_amount, :user_id, :game_teams, :home_or_away

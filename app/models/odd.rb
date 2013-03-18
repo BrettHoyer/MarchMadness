@@ -8,7 +8,7 @@ class Odd < ActiveRecord::Base
 
 		doc= Nokogiri::HTML(open('http://www.scoresandodds.com/index.html'))
 
-		@date = doc.css('#bkc .date').text
+		@date = doc.css('#nba .date').text
 		games = doc.css('td#contentMain .gameSection #nba+.rightShadow')
 
 

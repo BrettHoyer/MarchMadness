@@ -212,7 +212,7 @@
 			  </div>
 			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
-			  	<%= f.number_field :wager_amount, :min => 1, :max => @user.account_balance/2, :width => 100 %>
+			  	<%= f.number_field :wager_amount, :min => 1, :max => @user.total_account_value/2, :width => 100 %>
 			  </div>
 			  <div class="field">
 			    <%= f.hidden_field :game_teams, :value => @game_teams %>

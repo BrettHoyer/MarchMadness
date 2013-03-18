@@ -31,7 +31,7 @@ require 'nokogiri'
       @picks = Pick.where(:win_or_lose => nil)
       @picks.each do |pick|
         doc= Nokogiri::HTML(open('http://www.scoresandodds.com/index.html'))
-        games = doc.css('td#contentMain .gameSection #bkc+.rightShadow')
+        games = doc.css('td#contentMain .gameSection #nba+.rightShadow')
         if games.css('.odd .finalscore').css("td[id$='#{pick.away_id}'] span").first != nil
           away_score = games.css('.odd .finalscore').css("td[id$='#{pick.away_id}'] span").first.text.to_i
           home_score = games.css('.even .finalscore').css("td[id$='#{pick.home_id}'] span").first.text.to_i

@@ -1,40 +1,50 @@
 class Odd < ActiveRecord::Base
-  attr_accessible :away_line, :game_id, :game_teams, :game_time, :home_line
+  attr_accessible :away_line, :game_id, :game_teams, :game_time, :home_line, :game_date
 	
 	require 'open-uri'
 	require 'xmlsimple'
 
 	def self.update_odds
 
-		key="97429b5a-2486-e211-b97f-003048dd52d5"
+		doc= Nokogiri::HTML(open('http://www.scoresandodds.com/index.html'))
 
-		odds="http://xmlfeed.intertops.com/xmloddsfeed/v2/xml/?apikey=#{key}&delta=500&sportId=5&catId=1068"
+		@date = doc.css('#bkc .date').text
+		games = doc.css('td#contentMain .gameSection #bkc+.rightShadow')
 
-		odds_xml = open(URI.parse(odds))
 
-		config = XmlSimple.xml_in(odds_xml, { 'KeyAttr' => 'name' })
+		games_count = games.css('.time').count
+		game_number = 0
 
-		 Odd.destroy_all
-		 config['data'][0]['s'][0]['cat'][0]['m'].each do |game|
-		 	@odd=Odd.new
-		 	@odd.game_time = game["dt"]
-		 	@odd.game_id = game["id"]
-		 	@odd.game_teams = game['n']
-		 	if game['t']
-			 	game['t'].each do |bet_type|
-			 		if bet_type["n"] == "Moving Line"
-						@odd.away_line = bet_type['l'][0]["p"] 
-			 			@odd.home_line= bet_type['l'][1]['p']
-			 		end
-			 	end
-			 end
-			 @odd.save
-		 end
+			Odd.destroy_all
+
+			games_count.times do |game_number|
+				@odd = Odd.new	
+				
+				@odd.game_date = @date.split("/")[1]
+				@odd.game_time = games.css('.time')[game_number].text 	
+
+				if games.css('.odd .currentline')[game_number].text[0] == "-"
+					@odd.away_line = games.css('.odd .currentline')[game_number].text
+					@odd.home_line = games.css('.odd .currentline')[game_number].text.gsub("-", "+")
+				elsif games.css('.even .currentline')[game_number].text == ("PK " || "PK")
+					@odd.away_line = "0"
+					@odd.home_line = "0"
+				else
+					@odd.away_line = games.css('.even .currentline')[game_number].text.gsub("-", "+")
+					@odd.home_line = games.css('.even .currentline')[game_number].text
+				end
+
+					@odd.game_teams = games.css('.odd .name')[game_number].text.split(" ", 2).last + ' vs. ' + games.css('.even .name')[game_number].text.split(" ", 2).last
+					
+					
+					@odd.away_id = games.css('.odd .name')[game_number].text.split(" ", 2).first
+					@odd.home_id = games.css('.even .name')[game_number].text.split(" ", 2).first
+					@odd.save
+
+			end
+
  	
 	end
-
-
-
 
 
 

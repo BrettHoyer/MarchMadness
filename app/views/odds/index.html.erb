@@ -156,12 +156,20 @@
 	<% @game_teams = odd.game_teams %>
 	<% @away_line = odd.away_line %>
 	<% @home_line = odd.home_line %>
+	<% @game_day = odd.game_date %>
 	<% @game_time = odd.game_time %>
 	<% @game_id = odd.game_id %>
+	<% @away_id = odd.away_id %>
+	<% @home_id = odd.home_id %>
 
 
-	<% if @picks.where(:game_id => @game_id).empty? %>
-	<div id="game_<%= @game_id %>" class="individual-game">
+
+	<% if @picks.where(:home_id => @home_id).any? %>
+		<center><%= "Selection already made for the #{@game_teams} game." %></center>
+	<% elsif ((Time.parse @game_time) < DateTime.now) || Date.today.day.to_i > @game_day.to_i  %>
+		<center><%= "#{@game_teams} game is currently over or in progress." %></center>
+	<% else %>
+	<div id="game_<%= @home_id %>" class="individual-game">
 		<h3><%= @game_teams %></h3>
 			<%= @game_time %>
 		<% if @home_line == nil %>
@@ -193,6 +201,13 @@
 			    <%= f.hidden_field :game_id, :value => @game_id %>
 			  </div>
 			  <div class="field">
+			    <%= f.hidden_field :away_id, :value => @away_id %>
+			  </div>
+			  <div class="field">
+			    <%= f.hidden_field :home_id, :value => @home_id %>
+			  </div>
+
+			  <div class="field">
 			    <%= f.hidden_field :game_time, :value => @game_time %>
 			  </div>
 			  <div class="field">
@@ -211,8 +226,7 @@
 			<% end %>
 		<% end %>
 	</div>
-	<% else %>
-	<center><%= "Selection already made for the #{@game_teams} game." %></center>
+	
 	<% end %>
 <% end %>
 

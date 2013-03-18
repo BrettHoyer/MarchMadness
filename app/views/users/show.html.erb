@@ -11,7 +11,7 @@
   <%= @user.email %>
 </p>
 <table class="user-picks-table">
-	<header>Wagers</header>
+
 	<tr>
 		<th>Teams</th>
 		<th>Wager Amount</th>
@@ -31,9 +31,9 @@
 	<td><%= pick.home_or_away %></td>
 	<%if pick.win_or_lose == nil %>
 	<td>Pending</td>
-	<% elsif pick.win_or_lose ==false %>
+	<% elsif pick.win_or_lose == "loss" %>
  	<td>Loss</td>
- 	<% elsif pick.win_or_lose==true%>
+ 	<% elsif pick.win_or_lose== "win" %>
  	<td>Win</td>
  	<% end %>
  	<td><%= link_to "Pick",pick_url(pick.id) %></td>

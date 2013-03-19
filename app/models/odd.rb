@@ -9,7 +9,7 @@ class Odd < ActiveRecord::Base
 		doc= Nokogiri::HTML(open('http://www.scoresandodds.com/index.html'))
 
 		@date = doc.css('#nba .date').text
-		games = doc.css('td#contentMain .gameSection #nba+.rightShadow')
+		games = doc.css('td#contentMain .gameSection #bkc+.rightShadow')
 
 
 		games_count = games.css('.time').count
@@ -34,11 +34,11 @@ class Odd < ActiveRecord::Base
 					@odd.home_line = games.css('.even .currentline')[game_number].text
 				end
 
-					@odd.game_teams = games.css('.odd .name')[game_number].text.split(" ", 2).last + ' vs. ' + games.css('.even .name')[game_number].text.split(" ", 2).last
+					@odd.game_teams = games.css('.odd .name')[game_number].text.split(" ", 2).last.upcase + ' vs. ' + games.css('.even .name')[game_number].text.split(" ", 2).last.upcase
 					
 					
-					@odd.away_id = games.css('.odd .name')[game_number].text.split(" ", 2).first
-					@odd.home_id = games.css('.even .name')[game_number].text.split(" ", 2).first
+					@odd.away_id = games.css('.odd .name')[game_number].text.split(" ", 2).first.upcase
+					@odd.home_id = games.css('.even .name')[game_number].text.split(" ", 2).first.upcase
 					@odd.save
 
 			end

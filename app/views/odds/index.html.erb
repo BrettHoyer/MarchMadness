@@ -163,9 +163,9 @@
 	<% @home_id = odd.home_id %>
 
 
-
-	<% if @picks.where(:home_id => @home_id).any? %>
-		<center><%= "Selection already made for the #{@game_teams} game." %></center>
+	<% if @picks.where(:home_id=>@home_id).any? %>
+	<%= "Sorry, selection already made for the #{@game_teams} game." %>
+	
 	<% elsif ((Time.parse @game_time) < DateTime.now) || Date.today.day.to_i > @game_day.to_i  %>
 		<center><%= "#{@game_teams} game is currently over or in progress." %></center>
 	<% else %>
@@ -210,9 +210,11 @@
 			  <div class="field">
 			    <%= f.hidden_field :game_time, :value => @game_time %>
 			  </div>
+
 			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
 			  	<%= f.number_field :wager_amount, :min => 1, :max => @user.total_account_value/2, :width => 100 %>
+
 			  </div>
 			  <div class="field">
 			    <%= f.hidden_field :game_teams, :value => @game_teams %>

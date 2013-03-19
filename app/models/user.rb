@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :account_balance
 
-  before_save { |user| user.email = user.email.downcase }
+  before_save :email_downcase, :capitalize_name
 
   has_many :picks, :order => 'created_at desc'
 
   validates_uniqueness_of :email, :name
-  
+
   has_secure_password
 
   def total_account_value
@@ -29,8 +29,14 @@ class User < ActiveRecord::Base
   	return @bank
   end
 
+  def email_downcase
+  	self.email = self.email.downcase
+  end
 
-
+  def capitalize_name
+  	name_array = self.name.split(" ").each { |name| name.capitalize!}
+  	self.name = name_array.join(" ")
+  end
 end
 
 

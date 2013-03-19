@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   	end
 
   	def require_admin
-  		if session[:user_id] != 2
+  		if session[:user_id] != User.find_by_email("brett@example.com").id
   			redirect_to user_url(session[:user_id])
   		end
   	end	

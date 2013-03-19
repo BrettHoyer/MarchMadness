@@ -35,6 +35,8 @@
  	<td>Loss</td>
  	<% elsif pick.win_or_lose== "win" %>
  	<td>Win</td>
+ 	<% elsif pick.win_or_lose== 'push' %>
+ 	<td>Push</td>
  	<% end %>
  	<td><%= link_to "Pick",pick_url(pick.id) %></td>
 	</tr>

@@ -198,20 +198,21 @@ li:last-child {
 .container-splash{
   width: 100%;
   height: 1000px;
-  background: black;
   overflow: hidden;
-  position: relative;
+  background: black;
+  position: absolute;
+  padding: auto;
 }
 
 .splash-text{
   width: 800px;
+  margin: 200px 300px;
+  text-align: center;
   color: white;
   font-weight: bold;
   font-size: 72px;
   line-height: 120px;
-  text-align: center;
   position: relative;
-  margin: 200px auto 
 }
 
 .splash-photo-portrait{
@@ -278,5 +279,9 @@ h1{
   display: inline-block;
 }
 
+#balance{
+  margin: 20px;
+  
+}
 
 

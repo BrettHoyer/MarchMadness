@@ -167,7 +167,7 @@
 	<p class="individual-game">Sorry, selection already made for the <%= @game_teams %> game</p>
 	
 	<% elsif ((Time.parse @game_time) < DateTime.now) || Date.today.day.to_i > @game_day.to_i  %>
-	<p class="individual-game"><%= "#{@game_teams} game is currently over or in progress." %></p>
+	<p class="individual-game"><%= "#{@game_teams} game is currently over or in-progress." %></p>
 	<% else %>
 	<div id="game_<%= @home_id %>" class="individual-game">
 		<h3><%= @game_teams %></h3>

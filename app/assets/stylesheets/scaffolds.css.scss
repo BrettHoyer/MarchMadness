@@ -139,11 +139,12 @@ nav ul li{
 nav a, nav a:visited{
   background: #404853;
   background: -webkit-linear-gradient(#687587, #404853);
+  font-family: 'Volkhov', serif;
   border-left: 1px solid rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff;
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
   padding: 0 20px;
   line-height: 38px;
@@ -275,13 +276,16 @@ li:last-child {
   -webkit-transform: rotateY(180deg);
 }
 
-h1{
-  display: inline-block;
-}
 
 #balance{
-  margin: 20px;
-  
+  margin: 20px 30px;
+  display: inline-block;
+  background: rgba(23, 25, 25, 0.22);
+  border-radius: 6px;
+  padding: 3px;
+  color: white; 
+  font-size: 18px;
+  font-weight: normal;
 }
 
 

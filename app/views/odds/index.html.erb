@@ -1,4 +1,4 @@
-<h1 id="balance">Account Balance: <%= @user.account_balance %></h1>
+<h5 id="balance">Account Balance: <%= @user.account_balance %></h5>
 <% 
 =begin
 %>
@@ -164,10 +164,10 @@
 
 
 	<% if @picks.where(:home_id=>@home_id).any? %>
-	<%= "Sorry, selection already made for the #{@game_teams} game." %>
+	<p class="individual-game">Sorry, selection already made for the <%= @game_teams %> game</p>
 	
 	<% elsif ((Time.parse @game_time) < DateTime.now) || Date.today.day.to_i > @game_day.to_i  %>
-		<center><%= "#{@game_teams} game is currently over or in progress." %></center>
+	<p class="individual-game"><%= "#{@game_teams} game is currently over or in progress." %></p>
 	<% else %>
 	<div id="game_<%= @home_id %>" class="individual-game">
 		<h3><%= @game_teams %></h3>
@@ -213,7 +213,7 @@
 
 			  <div class="field">
 			  	<%= f.label :wager_amount, "Wager Amount" %>
-			  	<%= f.number_field :wager_amount, :min => 1, :max => @user.total_account_value/2, :width => 100 %>
+			  	<%= f.number_field :wager_amount, :min => 1, :max => @user.account_balance/2, :width => 100 %>
 
 			  </div>
 			  <div class="field">

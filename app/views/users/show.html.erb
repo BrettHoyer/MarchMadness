@@ -24,9 +24,9 @@
 	<td><%= pick.game_teams %></td>
 	<td><%= pick.wager_amount %></td>
 	<% if pick.home_or_away == 'away' %>
-	<td><%= pick.game_teams.split(' v ').first %></td>
+	<td><%= pick.game_teams.split(' vs. ').first %></td>
 	<% else %>
-	<td><%= pick.game_teams.split(' v ').last %></td>
+	<td><%= pick.game_teams.split(' vs. ').last %></td>
 	<% end %>
 	<td><%= pick.home_or_away %></td>
 	<%if pick.win_or_lose == nil %>
